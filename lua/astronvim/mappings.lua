@@ -474,4 +474,8 @@ maps.n["<leader>a;"] = { function() harpoon:list():select(4) end, desc='#4'}
 maps.n["<C-S-P>"]= {function() harpoon:list():prev() end , desc = "Previous buffer stored within Harpoon list"}
 maps.n["<C-S-N>"] = { function() harpoon:list():next() end , desc = "Next buffer stored within Harpoon list"}
 
+-- move stuff around in visual mode
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
 utils.set_mappings(astronvim.user_opts("mappings", maps))
