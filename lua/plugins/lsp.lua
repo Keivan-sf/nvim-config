@@ -44,6 +44,7 @@ return {
         opts = function(_, opts)
           if not opts.handlers then opts.handlers = {} end
           opts.handlers[1] = function(server) require("astronvim.utils.lsp").setup(server) end
+          opts.ensure_installed = {"lua_ls" , "nil_ls" , "tsserver"}
         end,
         config = require "plugins.configs.mason-lspconfig",
       },
@@ -60,11 +61,12 @@ return {
       {
         "jay-babu/mason-null-ls.nvim",
         cmd = { "NullLsInstall", "NullLsUninstall" },
-        opts = { handlers = {} },
+        opts = { handlers = {},  ensure_installed = {"prettier" , "stylelua" , "rustfmt" , "nixpkgs-fmt"}},
       },
     },
     event = "User AstroFile",
-    opts = function() return { on_attach = require("astronvim.utils.lsp").on_attach } end,
+    opts = function() return {
+      on_attach = require("astronvim.utils.lsp").on_attach } end,
   },
   {
     "stevearc/aerial.nvim",
