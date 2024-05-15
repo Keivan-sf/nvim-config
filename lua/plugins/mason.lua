@@ -11,6 +11,7 @@ return {
       "MasonUpdateAll", -- AstroNvim specific
     },
     opts = {
+      PATH = "appeand",
       ui = {
         icons = {
           package_installed = "✓",
