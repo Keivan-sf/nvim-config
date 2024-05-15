@@ -203,7 +203,10 @@ M.on_attach = function(client, bufnr)
 
   if client.supports_method "textDocument/formatting" and not tbl_contains(M.formatting.disabled, client.name) then
     lsp_mappings.n["<leader>lf"] = {
-      function() vim.lsp.buf.format(M.format_opts) end,
+      function()
+        vim.lsp.buf.format(M.format_opts)
+        vim.cmd("w")
+      end,
       desc = "Format buffer",
     }
     lsp_mappings.v["<leader>lf"] = lsp_mappings.n["<leader>lf"]
