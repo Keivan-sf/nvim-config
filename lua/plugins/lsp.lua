@@ -61,7 +61,7 @@ return {
       {
         "jay-babu/mason-null-ls.nvim",
         cmd = { "NullLsInstall", "NullLsUninstall" },
-        opts = { handlers = {},  ensure_installed = {"prettier" , "stylelua" , "rustfmt" , "nixpkgs-fmt"}},
+        opts = { handlers = {},  ensure_installed = {"prettier" , "stylelua" , "rustfmt"}},
       },
     },
     event = "User AstroFile",
