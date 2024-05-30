@@ -48,6 +48,7 @@ return {
         "query",
         "vim",
         "vimdoc",
+        "svelte",
       },
       highlight = {
         enable = true,
