@@ -49,6 +49,7 @@ return {
         "vim",
         "vimdoc",
         "svelte",
+        "rust",
       },
       highlight = {
         enable = true,
