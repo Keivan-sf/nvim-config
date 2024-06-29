@@ -50,6 +50,7 @@ return {
         "vimdoc",
         "svelte",
         "rust",
+        "prisma",
       },
       highlight = {
         enable = true,
