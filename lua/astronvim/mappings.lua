@@ -277,7 +277,7 @@ if is_available "telescope.nvim" then
     end,
     desc = "Find AstroNvim config files",
   }
-  maps.n["<leader>fb"] = { function() require("telescope.builtin").buffers() end, desc = "Find buffers" }
+  maps.n["<leader>fb"] = { function() require("telescope.builtin").buffers({layout_strategy='vertical' ,layout_config={ width=0.4, prompt_position='top', height=0.3 } }) end, desc = "Find buffers" }
   maps.n["<leader>fc"] = { function() require("telescope.builtin").grep_string() end, desc = "Find word under cursor" }
   maps.n["<leader>fC"] = { function() require("telescope.builtin").commands() end, desc = "Find commands" }
   maps.n["<leader>ff"] = { function() require("telescope.builtin").find_files({layout_strategy='vertical',layout_config={ width=0.4, prompt_position='top', height=0.3}} ) end, desc = "Find files" }
