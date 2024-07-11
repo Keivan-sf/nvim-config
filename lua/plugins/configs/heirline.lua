@@ -5,6 +5,24 @@ return function(_, opts)
   local lualine_mode = require("astronvim.utils.status.hl").lualine_mode
   local function resolve_lualine(orig, ...) return (not orig or orig == "NONE") and lualine_mode(...) or orig end
 
+
+  local function getBg()
+    if vim.cmd.colorscheme == 'github_dark_default' then
+      return '#000'
+    else
+      return  C.dark_bg
+    end
+  end
+
+
+  local function getFf()
+    if vim.cmd.colorscheme == 'github_dark_default' then
+      return '#000'
+    else
+      return  C.fg
+    end
+  end
+
   local function setup_colors()
     local Normal = get_hlgroup("Normal", { fg = C.fg, bg = C.bg })
     local Comment = get_hlgroup("Comment", { fg = C.bright_grey, bg = C.bg })
@@ -35,12 +53,12 @@ return function(_, opts)
 
     local colors = astronvim.user_opts("heirline.colors", {
       close_fg = Error.fg,
-      fg = StatusLine.fg,
-      bg = StatusLine.bg,
-      section_fg = StatusLine.fg,
-      section_bg = StatusLine.bg,
+      fg = C.fg,
+      bg = "#000000",
+      section_fg = C.fg,
+      section_bg = "#000000",
       git_branch_fg = Conditional.fg,
-      mode_fg = StatusLine.bg,
+      mode_fg = "#000000",
       treesitter_fg = String.fg,
       scrollbar = TypeDef.fg,
       git_added = GitSignsAdd.fg,
