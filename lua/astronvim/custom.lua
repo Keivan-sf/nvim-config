@@ -60,7 +60,9 @@ null_ls.register(prettier)
 
 
 -- clangd
-
+-- Check https://github.com/neovim/nvim-lspconfig/issues/2184
+-- Check /home/keive/.local/share/nvim/lazy/nvim-lspconfig/lua/lspconfig/server_configurations/clangd.lua
+-- Which is found by: sudo find / -type f -iname "clangd.lua"
 local lspconfig = require('lspconfig')
 lspconfig.clangd.setup {
     textDocument = {
