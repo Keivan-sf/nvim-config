@@ -70,5 +70,5 @@ lspconfig.clangd.setup {
       editsNearCursor = true,
     },
   },
-  offsetEncoding = { 'utf-8', 'utf-16' },
+  offsetEncoding = { 'utf-16' },
 }
