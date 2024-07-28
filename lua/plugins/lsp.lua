@@ -60,13 +60,26 @@ return {
     dependencies = {
       {
         "jay-babu/mason-null-ls.nvim",
+        "davidmh/cspell.nvim",
         cmd = { "NullLsInstall", "NullLsUninstall" },
         opts = { handlers = {},  ensure_installed = {"prettier" , "stylelua" , "rustfmt" , "autopep8"}},
       },
     },
     event = "User AstroFile",
-    opts = function() return {
-      on_attach = require("astronvim.utils.lsp").on_attach } end,
+    opts = function()
+      local cspell = require("cspell")
+      return {
+      on_attach = require("astronvim.utils.lsp").on_attach,
+      sources = {
+            cspell.diagnostics.with({
+              -- Set the severity to HINT for unknown words
+              diagnostics_postprocess = function(diagnostic)
+                diagnostic.severity = vim.diagnostic.severity["HINT"]
+              end,
+            }),
+            cspell.code_actions,
+      }
+    } end,
   },
   {
     "stevearc/aerial.nvim",
