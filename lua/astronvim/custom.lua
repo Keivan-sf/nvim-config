@@ -57,3 +57,16 @@ local prettier = {
 
 null_ls.register(nix_formatter)
 null_ls.register(prettier)
+
+
+-- clangd
+
+local lspconfig = require('lspconfig')
+lspconfig.clangd.setup {
+    textDocument = {
+    completion = {
+      editsNearCursor = true,
+    },
+  },
+  offsetEncoding = { 'utf-8', 'utf-16' },
+}
