@@ -144,8 +144,16 @@ M.on_attach = function(client, bufnr)
   lsp_mappings.n["gl"] = { function() vim.diagnostic.open_float() end, desc = "Hover diagnostics" }
 
   if is_available "telescope.nvim" then
+-- severity_limit
     lsp_mappings.n["<leader>lD"] =
-      { function() require("telescope.builtin").diagnostics() end, desc = "Search diagnostics" }
+      { function() require("telescope.builtin").diagnostics({severity_limit = 1}) end, desc = "Search diagnostics" }
+    lsp_mappings.n["<leader>lO"] =
+
+    -- vim.diagnostic.severity.ERROR
+    -- vim.diagnostic.severity.WARN
+    -- vim.diagnostic.severity.INFO
+    -- vim.diagnostic.severity.HINT
+      { function() require("telescope.builtin").diagnostics({severity_limit= 4}) end, desc = "Search diagnostics" }
   end
 
   if is_available "mason-lspconfig.nvim" then
