@@ -28,16 +28,34 @@ local sources = {
 
 null_ls.register(sources)
 
+vim.g.c_syntax_for_h = true
 -- clangd
+-- see https://github.com/jose-elias-alvarez/null-ls.nvim/issues/428
+-- which reffered to this: https://github.com/neovim/neovim/pull/16694
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+-- local capabilities = {
+--   textDocument = {
+--     completion = {
+--       editsNearCursor = true,
+--     },
+--   },
+--   offsetEncoding = { 'utf-16' },
+-- }
+
+capabilities.offsetEncoding = { "utf-16" }
+require("lspconfig").clangd.setup {
+  capabilities = capabilities,
+}
+
 -- Check https://github.com/neovim/nvim-lspconfig/issues/2184
 -- Check /home/keive/.local/share/nvim/lazy/nvim-lspconfig/lua/lspconfig/server_configurations/clangd.lua
 -- Which is found by: sudo find / -type f -iname "clangd.lua"
-local lspconfig = require "lspconfig"
-lspconfig.clangd.setup {
-  textDocument = {
-    completion = {
-      editsNearCursor = true,
-    },
-  },
-  offsetEncoding = { "utf-16" },
-}
+-- local lspconfig = require "lspconfig"
+-- lspconfig.clangd.setup {
+--   textDocument = {
+--     completion = {
+--       editsNearCursor = true,
+--     },
+--   },
+--   offsetEncoding = { "utf-8" },
+-- }
