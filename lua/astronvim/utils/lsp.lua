@@ -144,16 +144,15 @@ M.on_attach = function(client, bufnr)
   lsp_mappings.n["gl"] = { function() vim.diagnostic.open_float() end, desc = "Hover diagnostics" }
 
   if is_available "telescope.nvim" then
--- severity_limit
+    -- severity_limit
     lsp_mappings.n["<leader>lD"] =
-      { function() require("telescope.builtin").diagnostics({severity_limit = 1}) end, desc = "Search diagnostics" }
+      { function() require("telescope.builtin").diagnostics { severity_limit = 1 } end, desc = "Search diagnostics" }
     lsp_mappings.n["<leader>lO"] =
-
-    -- vim.diagnostic.severity.ERROR
-    -- vim.diagnostic.severity.WARN
-    -- vim.diagnostic.severity.INFO
-    -- vim.diagnostic.severity.HINT
-      { function() require("telescope.builtin").diagnostics({severity_limit= 4}) end, desc = "Search diagnostics" }
+      -- vim.diagnostic.severity.ERROR
+      -- vim.diagnostic.severity.WARN
+      -- vim.diagnostic.severity.INFO
+      -- vim.diagnostic.severity.HINT
+      { function() require("telescope.builtin").diagnostics { severity_limit = 4 } end, desc = "Search diagnostics" }
   end
 
   if is_available "mason-lspconfig.nvim" then
@@ -195,25 +194,25 @@ M.on_attach = function(client, bufnr)
     }
   end
 
-  if client.supports_method "textDocument/declaration" then
-    lsp_mappings.n["gD"] = {
-      function() vim.lsp.buf.declaration() end,
-      desc = "Declaration of current symbol",
-    }
-  end
+  -- if client.supports_method "textDocument/declaration" then
+  lsp_mappings.n["gD"] = {
+    function() vim.lsp.buf.declaration() end,
+    desc = "Declaration of current symbol",
+  }
+  -- end
 
-  if client.supports_method "textDocument/definition" then
-    lsp_mappings.n["gd"] = {
-      function() vim.lsp.buf.definition() end,
-      desc = "Show the definition of current symbol",
-    }
-  end
+  -- if client.supports_method "textDocument/definition" then
+  lsp_mappings.n["gd"] = {
+    function() vim.lsp.buf.definition() end,
+    desc = "Show the definition of current symbol",
+  }
+  -- end
 
   if client.supports_method "textDocument/formatting" and not tbl_contains(M.formatting.disabled, client.name) then
     lsp_mappings.n["<leader>lf"] = {
       function()
         vim.lsp.buf.format(M.format_opts)
-        vim.cmd("w")
+        vim.cmd "w"
       end,
       desc = "Format buffer",
     }
@@ -279,15 +278,15 @@ M.on_attach = function(client, bufnr)
     })
   end
 
-  if client.supports_method "textDocument/hover" then
-    -- TODO: Remove mapping after dropping support for Neovim v0.9, it's automatic
-    if vim.fn.has "nvim-0.10" == 0 then
-      lsp_mappings.n["K"] = {
-        function() vim.lsp.buf.hover() end,
-        desc = "Hover symbol details",
-      }
-    end
+  -- if client.supports_method "textDocument/hover" then
+  -- TODO: Remove mapping after dropping support for Neovim v0.9, it's automatic
+  if vim.fn.has "nvim-0.10" == 0 then
+    lsp_mappings.n["K"] = {
+      function() vim.lsp.buf.hover() end,
+      desc = "Hover symbol details",
+    }
   end
+  -- end
 
   if client.supports_method "textDocument/implementation" then
     lsp_mappings.n["gI"] = {
