@@ -129,4 +129,5 @@ astronvim.user_terminals = {}
 --- table of language servers to ignore the setup of, configured through lsp.skip_setup in the user configuration
 astronvim.lsp = { skip_setup = astronvim.user_opts("lsp.skip_setup", {}), progress = {} }
 --- the default colorscheme to apply on startup
-astronvim.default_colorscheme = astronvim.user_opts("colorscheme", "astrotheme", false)
+-- astronvim.default_colorscheme = astronvim.user_opts("colorscheme", "astrotheme", false)
+astronvim.default_colorscheme = astronvim.user_opts("colorscheme", "github_dark_default", false)
