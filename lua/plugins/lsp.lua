@@ -44,7 +44,7 @@ return {
         opts = function(_, opts)
           if not opts.handlers then opts.handlers = {} end
           opts.handlers[1] = function(server) require("astronvim.utils.lsp").setup(server) end
-          opts.ensure_installed = {"lua_ls" , "nil_ls" , "tsserver" , "clangd" , "svelte" , "html" , "cssls" , "jsonls" , "pyright" , "rust_analyzer" , "prismals"}
+          opts.ensure_installed = {"lua_ls" , "nil_ls" , "ts_ls" , "clangd" , "svelte" , "html" , "cssls" , "jsonls" , "pyright" , "rust_analyzer" , "prismals"}
         end,
         config = require "plugins.configs.mason-lspconfig",
       },

@@ -1,6 +1,8 @@
 local null_ls = require "null-ls"
 local helpers = require "null-ls.helpers"
 
+vim.opt.guifont = "FiraCode Nerd Font:h12"
+
 local nix_formatter = {
   method = null_ls.methods.FORMATTING,
   filetypes = { "nix" },

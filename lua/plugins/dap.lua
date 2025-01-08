@@ -10,7 +10,15 @@ return {
     },
     {
       "rcarriga/nvim-dap-ui",
-      dependencies = { "nvim-neotest/nvim-nio" },
+      dependencies = {
+        "nvim-neotest/nvim-nio",
+        {
+          {
+            "nvim-neotest/neotest",
+            dependencies = { "nvim-neotest/nvim-nio" },
+          },
+        },
+      },
       opts = { floating = { border = "rounded" } },
       config = require "plugins.configs.nvim-dap-ui",
     },
