@@ -3,3 +3,6 @@ if vim.fn["has"]("unnamedplus") then
 else
         vim.opt.clipboard:append({'unnamed'})
 end
+
+vim.opt.number = true
+vim.opt.relativenumber = true
