@@ -1,6 +1,8 @@
--- telescope
 local map = vim.keymap.set
-if 1 then
+local utils = require("keive.utils")
+
+-- telescope
+if utils.is_available("telescope.nvim") then
     -- Git branches
     map('n' , "<leader>gb" , function() require("telescope.builtin").git_branches({ use_file_path = true }) end)
     -- Git commits (repository)
