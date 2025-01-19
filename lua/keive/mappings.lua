@@ -69,3 +69,21 @@ if utils.is_available("telescope.nvim") then
 --    desc = "Search symbols",
 --  }
 end
+
+
+-- neo-tree
+
+
+if utils.is_available ("neo-tree.nvim") then
+  -- Toggle Explorer
+  map("n" , "<leader>e", "<cmd>Neotree toggle<cr>")
+
+  -- Toggle Explorer Focus
+  map("n" , "<leader>o", function()
+      if vim.bo.filetype == "neo-tree" then
+        vim.cmd.wincmd "p"
+      else
+        vim.cmd.Neotree "focus"
+      end
+    end)
+end
