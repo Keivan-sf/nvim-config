@@ -72,8 +72,6 @@ end
 
 
 -- neo-tree
-
-
 if utils.is_available ("neo-tree.nvim") then
   -- Toggle Explorer
   map("n" , "<leader>e", "<cmd>Neotree toggle<cr>")
