@@ -22,6 +22,7 @@ return {
           { source = "diagnostics", display_name = get_icon("Diagnostic", 1, true) .. "Diagnostic" },
         },
       },
+      popup_border_style = "rounded",
       default_component_configs = {
         indent = { padding = 0 },
         icon = {
@@ -107,7 +108,7 @@ return {
           ["<space>"] = false, -- disable space until we figure out which-key disabling
           ["[b"] = "prev_source",
           ["]b"] = "next_source",
-          O = "system_open",
+        --  O = "system_open",
           Y = "copy_selector",
           h = "parent_or_close",
           l = "child_or_open",
