@@ -6,3 +6,4 @@ end
 
 vim.opt.number = true
 vim.opt.relativenumber = true
+vim.g.icons_enabled = true
