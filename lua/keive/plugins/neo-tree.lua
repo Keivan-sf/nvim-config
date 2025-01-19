@@ -1,5 +1,6 @@
 return {
   "nvim-neo-tree/neo-tree.nvim",
+  lazy = false,
   branch = "main", -- HACK: force neo-tree to checkout `main` for initial v3 migration since default branch has changed
   dependencies = { "MunifTanjim/nui.nvim" },
   cmd = "Neotree",
@@ -46,10 +47,6 @@ return {
         },
       },
       commands = {
-        system_open = function(state)
-          -- TODO: just use vim.ui.open when dropping support for Neovim <0.10
-          (vim.ui.open or require("astronvim.utils").system_open)(state.tree:get_node():get_id())
-        end,
         parent_or_close = function(state)
           local node = state.tree:get_node()
           if (node.type == "directory" or node:has_children()) and node:is_expanded() then
