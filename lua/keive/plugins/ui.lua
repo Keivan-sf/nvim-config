@@ -48,5 +48,14 @@ return{
     },
     enabled = vim.g.icons_enabled,
     config = function(_, opts) require("lspkind").init(opts) end
+  },
+  {
+    "stevearc/dressing.nvim",
+    lazy = true,
+    init = function() require("keive.utils").load_plugin_with_func("dressing.nvim", vim.ui, { "input", "select" }) end,
+    opts = {
+      input = { default_prompt = "➤ " },
+      select = { backend = { "telescope", "builtin" } },
+    },
   }
 }
