@@ -21,6 +21,7 @@ local border_opts = {
         winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
       }
 
+local lspkind_status_ok, lspkind = pcall(require, "lspkind")
 cmp.setup({
   enabled = are_dap_and_cmp_available,
   duplicates = {
@@ -39,6 +40,10 @@ cmp.setup({
     documentation = cmp.config.window.bordered(border_opts),
   },
   preselect = cmp.PreselectMode.None,
+  formatting = {
+    fields = { "kind", "abbr", "menu" },
+    format = lspkind_status_ok and lspkind.cmp_format(utils.plugin_opts "lspkind.nvim") or nil,
+  },
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)
