@@ -85,3 +85,62 @@ if utils.is_available ("neo-tree.nvim") then
       end
     end)
 end
+
+
+-- LSP
+vim.api.nvim_create_autocmd('LspAttach', {
+  desc = 'LSP actions',
+  callback = function()
+    -- Displays hover information about the symbol under the cursor
+    map('n', 'K', function() vim.lsp.buf.hover() end, {buffer = true})
+
+    -- Jump to the definition
+    map('n', 'gd', function() vim.lsp.buf.definition({on_list = function(options)
+                vim.fn.setqflist({}, ' ', options)
+                vim.cmd.cfirst()
+    end
+    }) end, {buffer = true })
+
+    -- Jump to declaration
+    map('n', 'gD', function() vim.lsp.buf.declaration() end, {buffer = true})
+
+    -- Lists all the implementations for the symbol under the cursor
+    map('n', 'gi', function() vim.lsp.buf.implementation() end, {buffer = true})
+
+    -- Jumps to the definition of the type symbol
+    map('n', 'go', function() vim.lsp.buf.type_definition() end, {buffer = true})
+
+    -- Lists all the references
+    map('n', 'gr', function() vim.lsp.buf.references() end, {buffer = true})
+
+    -- Displays a function's signature information
+    map('n', 'gs', function() vim.lsp.buf.signature_help() end, {buffer = true})
+
+    -- Renames all references to the symbol under the cursor
+   -- map('n', 'r', function() vim.lsp.buf.rename()end, {buffer = true})
+
+    -- Search references
+    map('n', '<leader>lR',function() vim.lsp.buf.references()end, {buffer = true})
+
+    -- Selects a code action available at the current cursor position
+    map('n', '<leader>la',function() vim.lsp.buf.code_action()end, {buffer = true})
+
+    -- Show diagnostics in a floating window
+    map('n', '<leader>ld',function() vim.diagnostic.open_float()end, {buffer = true})
+
+    -- Move to the previous diagnostic
+    map('n', '[d',function() vim.diagnostic.goto_prev()end, {buffer = true})
+
+    -- Move to the next diagnostic
+    map('n', ']d',function() vim.diagnostic.goto_next()end, {buffer = true})
+  end
+})
+local a = "12"
+a = "sdf"
+
+vim.api.nvim_create_autocmd({"CursorHold", "CursorHoldI"}, {
+  group = vim.api.nvim_create_augroup("code_action_sign", { clear = true }),
+  callback = function()
+	  -- do something here
+  end,
+})
