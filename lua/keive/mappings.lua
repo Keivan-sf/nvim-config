@@ -117,7 +117,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     map('n', 'gs', function() vim.lsp.buf.signature_help() end, {buffer = true})
 
     -- Renames all references to the symbol under the cursor
-   -- map('n', 'r', function() vim.lsp.buf.rename()end, {buffer = true})
+    map('n', '<leader>lr', function() vim.lsp.buf.rename()end, {buffer = true})
 
     -- Search references
     map('n', '<leader>lR',function() vim.lsp.buf.references()end, {buffer = true})
@@ -135,9 +135,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
     map('n', ']d',function() vim.diagnostic.goto_next()end, {buffer = true})
   end
 })
-local a = "12"
-a = "sdf"
-
 vim.api.nvim_create_autocmd({"CursorHold", "CursorHoldI"}, {
   group = vim.api.nvim_create_augroup("code_action_sign", { clear = true }),
   callback = function()
