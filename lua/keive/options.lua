@@ -7,3 +7,4 @@ end
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.g.icons_enabled = true
+vim.g.cmp_enabled = true
