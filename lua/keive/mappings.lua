@@ -141,3 +141,18 @@ vim.api.nvim_create_autocmd({"CursorHold", "CursorHoldI"}, {
 	  -- do something here
   end,
 })
+
+-- git signs
+if utils.is_available("gitsigns.nvim") then
+  map('n',"]g", function() require("gitsigns").next_hunk() end)
+  map('n' , "[g", function() require("gitsigns").prev_hunk() end)
+  map('n' , "<leader>gl", function() require("gitsigns").blame_line() end)
+  map('n' , "<leader>gL", function() require("gitsigns").blame_line { full = true } end)
+  map('n' , "<leader>gp", function() require("gitsigns").preview_hunk() end)
+  map('n' , "<leader>gh", function() require("gitsigns").reset_hunk() end)
+  map('n' , "<leader>gr", function() require("gitsigns").reset_buffer() end)
+  map('n' , "<leader>gs", function() require("gitsigns").stage_hunk() end)
+  map('n' , "<leader>gS", function() require("gitsigns").stage_buffer() end)
+  map('n' , "<leader>gu", function() require("gitsigns").undo_stage_hunk() end)
+  map('n' , "<leader>gd", function() require("gitsigns").diffthis() end)
+end
