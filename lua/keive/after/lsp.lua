@@ -1,10 +1,37 @@
-local is_cmp_available , _cmp = pcall(require , "cmp_nvim_lsp")
-local is_lsp_available , _lsp = pcall(require , "lspconfig")
+local is_cmp_available, _cmp = pcall(require, "cmp_nvim_lsp")
+local is_lsp_available, _lsp = pcall(require, "lspconfig")
 
 if is_lsp_available and is_cmp_available then
 	local lspconfig = require("lspconfig")
 	local capabilities = require("cmp_nvim_lsp").default_capabilities()
+	local utils = require("keive.utils")
+	local get_icon = utils.get_icon
+	local signs = {
+		{ name = "DiagnosticSignError", text = get_icon("DiagnosticError"), texthl = "DiagnosticSignError" },
+		{ name = "DiagnosticSignWarn", text = get_icon("DiagnosticWarn"), texthl = "DiagnosticSignWarn" },
+		{ name = "DiagnosticSignHint", text = get_icon("DiagnosticHint"), texthl = "DiagnosticSignHint" },
+		{ name = "DiagnosticSignInfo", text = get_icon("DiagnosticInfo"), texthl = "DiagnosticSignInfo" },
+		{ name = "DapStopped", text = get_icon("DapStopped"), texthl = "DiagnosticWarn" },
+		{ name = "DapBreakpoint", text = get_icon("DapBreakpoint"), texthl = "DiagnosticInfo" },
+		{ name = "DapBreakpointRejected", text = get_icon("DapBreakpointRejected"), texthl = "DiagnosticError" },
+		{ name = "DapBreakpointCondition", text = get_icon("DapBreakpointCondition"), texthl = "DiagnosticInfo" },
+		{ name = "DapLogPoint", text = get_icon("DapLogPoint"), texthl = "DiagnosticInfo" },
+	}
 
+	for _, sign in ipairs(signs) do
+		vim.fn.sign_define(sign.name, sign)
+	end
+	vim.diagnostic.config({
+		signs = {
+			text = {
+				[vim.diagnostic.severity.ERROR] = utils.get_icon("DiagnosticError"),
+				[vim.diagnostic.severity.HINT] = utils.get_icon("DiagnosticHint"),
+				[vim.diagnostic.severity.WARN] = utils.get_icon("DiagnosticWarn"),
+				[vim.diagnostic.severity.INFO] = utils.get_icon("DiagnosticInfo"),
+			},
+			active = signs,
+		},
+	})
 	lspconfig.lua_ls.setup({
 		capabilities = capabilities,
 		on_init = function(client)
