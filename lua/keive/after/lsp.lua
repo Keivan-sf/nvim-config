@@ -35,3 +35,6 @@ lspconfig.lua_ls.setup({
 		Lua = {},
 	},
 })
+
+require'lspconfig'.pyright.setup{}
+require'lspconfig'.tsserver.setup{}
