@@ -281,3 +281,7 @@ vim.keymap.set('n', 'N', 'Nzz', { noremap = true, silent = true })
 
 -- scroll offset
 vim.opt.scrolloff = 8
+
+-- move stuff around in visual mode
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
