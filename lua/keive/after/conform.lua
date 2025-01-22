@@ -8,6 +8,13 @@ require("conform").setup({
     -- Conform will run the first available formatter
     javascript = { "prettierd", "prettier", stop_after_first = true },
   },
+  -- If this is set, Conform will run the formatter on save.
+  -- It will pass the table to conform.format().
+  -- This can also be a function that returns the table.
+--  format_on_save = {
+--    lsp_format = "fallback",
+--    timeout_ms = 500,
+--  },
 })
 
 vim.api.nvim_create_user_command("Format", function(args)
