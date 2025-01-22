@@ -2,3 +2,4 @@
  vim.cmd("TSEnable 1")
  require("keive.after.lsp")
  require("keive.after.cmp")
+ require("keive.after.conform")
