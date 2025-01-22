@@ -270,4 +270,7 @@ if utils.is_available("conform.nvim") then
 		require("conform").format()
 		vim.cmd("w")
 	end)
+	map("n", "<leader>lF", function()
+		vim.cmd("Format")
+	end)
 end
