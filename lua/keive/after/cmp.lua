@@ -14,7 +14,6 @@ local are_dap_and_cmp_available = function()
 	if vim.api.nvim_get_option_value("buftype", { buf = 0 }) == "prompt" and not dap_prompt then
 		return false
 	end
-	print("we are returning cmp_enable now!!")
 	return vim.g.cmp_enabled
 end
 
