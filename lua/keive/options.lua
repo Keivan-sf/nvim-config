@@ -14,6 +14,7 @@ vim.o.showmode = false
 -- vim.o.lazyredraw = true
 vim.g.icons_enabled = true
 vim.g.cmp_enabled = true
+vim.g.noswapfile = true
 vim.cmd [[
   augroup LualineUpdate
     autocmd!
