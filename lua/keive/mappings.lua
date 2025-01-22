@@ -165,3 +165,11 @@ map('n' , "<leader>gg" , function()
         utils.toggle_term_cmd("lazygit " .. flags)
       end)
 end
+
+-- formatting
+if utils.is_available("conform.nvim") then
+	map('n' , "<leader>lf" , function()
+		require("conform").format()
+		vim.cmd("w")
+	end)
+end
