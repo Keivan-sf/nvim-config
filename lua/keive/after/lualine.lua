@@ -46,3 +46,24 @@ if utils.is_available("lualine.nvim") then
 		extensions = {},
 	})
 end
+
+local default_refresh_events = {
+  'WinEnter',
+  'BufEnter',
+  'BufWritePost',
+  'SessionLoadPost',
+  'FileChangedShellPost',
+  'VimResized',
+  'Filetype',
+  'CursorMoved',
+  'CursorMovedI',
+  'ModeChanged',
+}
+vim.api.nvim_create_autocmd(default_refresh_events, {
+  group = vim.api.nvim_create_augroup('LualineRefreshEvents', { clear = true }),
+  callback = function()
+    vim.schedule(function()
+      require('lualine').refresh()
+    end)
+  end,
+})
