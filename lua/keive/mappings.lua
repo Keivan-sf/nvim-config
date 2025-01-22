@@ -156,3 +156,12 @@ if utils.is_available("gitsigns.nvim") then
   map('n' , "<leader>gu", function() require("gitsigns").undo_stage_hunk() end)
   map('n' , "<leader>gd", function() require("gitsigns").diffthis() end)
 end
+
+-- lazygit
+if utils.is_available("toggleterm.nvim") and vim.fn.executable "lazygit" == 1 then
+map('n' , "<leader>gg" , function()
+        local worktree = require("keive.utils.git").file_worktree()
+        local flags = worktree and (" --work-tree=%s --git-dir=%s"):format(worktree.toplevel, worktree.gitdir) or ""
+        utils.toggle_term_cmd("lazygit " .. flags)
+      end)
+end
