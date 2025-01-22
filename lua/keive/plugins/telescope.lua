@@ -1,9 +1,10 @@
 return {
-	'nvim-telescope/telescope.nvim', tag = '0.1.8',
+	"nvim-telescope/telescope.nvim",
+	tag = "0.1.8",
 	-- or                              , branch = '0.1.x',
-	dependencies = { 'nvim-lua/plenary.nvim' },
+	dependencies = { "nvim-lua/plenary.nvim" },
 	opts = function()
-		local actions = require "telescope.actions"
+		local actions = require("telescope.actions")
 		return {
 			git_worktrees = vim.g.git_worktrees,
 			--prompt_prefix = get_icon("Selected", 1),
@@ -26,8 +27,8 @@ return {
 						["<C-k>"] = actions.move_selection_previous,
 					},
 					n = { q = actions.close },
-				}
-			}
+				},
+			},
 		}
 	end,
 }
