@@ -274,3 +274,10 @@ if utils.is_available("conform.nvim") then
 		vim.cmd("Format")
 	end)
 end
+
+-- center search result
+vim.keymap.set('n', 'n', 'nzz', { noremap = true, silent = true })
+vim.keymap.set('n', 'N', 'Nzz', { noremap = true, silent = true })
+
+-- scroll offset
+vim.opt.scrolloff = 8
