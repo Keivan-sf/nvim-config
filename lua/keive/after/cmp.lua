@@ -1,5 +1,6 @@
 local utils = require("keive.utils")
-if utils.is_available("cmp-nvim-lsp") then
+local is_cmp_available , _cmp = pcall(require , "cmp")
+if is_cmp_available then
 	local cmp = require("cmp")
 	local luasnip = require("luasnip")
 	local utils = require("keive.utils")

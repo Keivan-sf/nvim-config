@@ -1,5 +1,7 @@
-local utils = require("keive.utils")
-if utils.is_available("nvim-lspconfig.nvim") and utils.is_available("cmp-nvim-lsp.nvim") then
+local is_cmp_available , _cmp = pcall(require , "cmp_nvim_lsp")
+local is_lsp_available , _lsp = pcall(require , "lspconfig")
+
+if is_lsp_available and is_cmp_available then
 	local lspconfig = require("lspconfig")
 	local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
