@@ -32,6 +32,7 @@ if is_lsp_available and is_cmp_available then
 			active = signs,
 		},
 	})
+
 	lspconfig.lua_ls.setup({
 		capabilities = capabilities,
 		on_init = function(client)
@@ -69,4 +70,14 @@ if is_lsp_available and is_cmp_available then
 
 	require("lspconfig").pyright.setup({})
 	require("lspconfig").tsserver.setup({})
+	require("lspconfig").tailwindcss.setup({
+		capabilities = capabilities,
+	})
+	require("lspconfig").html.setup({
+		capabilities = capabilities,
+	})
+	require("lspconfig").cssls.setup({
+		capabilities = capabilities,
+	})
+    require("lspconfig").css_variables.setup{}
 end
