@@ -70,14 +70,13 @@ if is_lsp_available and is_cmp_available then
 
 	require("lspconfig").pyright.setup({})
 	require("lspconfig").tsserver.setup({})
-	require("lspconfig").tailwindcss.setup({
-		capabilities = capabilities,
-	})
+
+	require("lspconfig").emmet_ls.setup({})
 	require("lspconfig").html.setup({
 		capabilities = capabilities,
 	})
 	require("lspconfig").cssls.setup({
 		capabilities = capabilities,
 	})
-    require("lspconfig").css_variables.setup{}
+	require("lspconfig").css_variables.setup({})
 end
