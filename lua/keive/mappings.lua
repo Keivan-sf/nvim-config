@@ -1,6 +1,8 @@
 local map = vim.keymap.set
 local utils = require("keive.utils")
 
+map("n", "|", "<cmd>vsplit<cr>")
+map("n", "\\", "<cmd>split<cr>")
 -- telescope
 if utils.is_available("telescope.nvim") then
 	-- Git branches
@@ -276,8 +278,8 @@ if utils.is_available("conform.nvim") then
 end
 
 -- center search result
-vim.keymap.set('n', 'n', 'nzz', { noremap = true, silent = true })
-vim.keymap.set('n', 'N', 'Nzz', { noremap = true, silent = true })
+vim.keymap.set("n", "n", "nzz", { noremap = true, silent = true })
+vim.keymap.set("n", "N", "Nzz", { noremap = true, silent = true })
 
 -- scroll offset
 vim.opt.scrolloff = 8
