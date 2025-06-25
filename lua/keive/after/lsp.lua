@@ -69,7 +69,7 @@ if is_lsp_available and is_cmp_available then
 	})
 
 	require("lspconfig").pyright.setup({})
-	require("lspconfig").tsserver.setup({})
+	require("lspconfig").ts_ls.setup({})
 	require("lspconfig").rust_analyzer.setup({})
 
 	require("lspconfig").emmet_ls.setup({})
