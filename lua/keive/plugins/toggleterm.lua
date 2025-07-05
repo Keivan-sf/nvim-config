@@ -5,8 +5,10 @@ return {
 		highlights = {
 			Normal = { link = "Normal" },
 			NormalNC = { link = "NormalNC" },
-			NormalFloat = { link = "NormalFloat" },
-			FloatBorder = { link = "FloatBorder" },
+			-- NormalFloat = { link = "NormalFloat" },
+			NormalFloat = { link = "Normal" },
+			-- FloatBorder = { link = "FloatBorder" },
+			FloatBorder = { link = "Normal" },
 			StatusLine = { link = "StatusLine" },
 			StatusLineNC = { link = "StatusLineNC" },
 			WinBar = { link = "WinBar" },
