@@ -293,6 +293,11 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 map("n", "<C-PageDown>", function()
 	vim.cmd("bprev")
 end)
+
 map("n", "<C-PageUp>", function()
 	vim.cmd("bnext")
+end)
+
+map("n", "<leader>c", function()
+	require("keive.utils.buffer").close()
 end)
