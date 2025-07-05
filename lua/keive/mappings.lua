@@ -288,3 +288,11 @@ vim.opt.scrolloff = 8
 -- move stuff around in visual mode
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
+-- moving between buffers
+map("n", "<C-PageDown>", function()
+	vim.cmd("bprev")
+end)
+map("n", "<C-PageUp>", function()
+	vim.cmd("bnext")
+end)
