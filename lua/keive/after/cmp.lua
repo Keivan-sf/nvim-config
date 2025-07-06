@@ -22,7 +22,8 @@ if is_cmp_available then
 
 	local border_opts = {
 		border = "rounded",
-		winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
+		-- winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
+		winhighlight = "Normal:Normal,FloatBorder:Normal,CursorLine:PmenuSel,Search:None",
 	}
 
 	local lspkind_status_ok, lspkind = pcall(require, "lspkind")
