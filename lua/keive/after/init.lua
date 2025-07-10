@@ -1,6 +1,6 @@
 -- color theme
 -- vim.cmd.colorscheme("github_dark_default")
-vim.cmd.colorscheme("murphy")
+vim.cmd.colorscheme("wildcharm")
 vim.cmd("TSEnable 1")
 require("keive.after.lsp")
 require("keive.after.cmp")
