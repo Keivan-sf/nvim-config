@@ -15,11 +15,14 @@ if utils.is_available("conform.nvim") then
 			json = { "prettierd", "prettier", stop_after_first = true },
 			html = { "prettierd", "prettier", stop_after_first = true },
 			css = { "prettierd", "prettier", stop_after_first = true },
+			yaml = { "prettierd", "prettier", stop_after_first = true },
+			markdown = { "prettierd", "prettier", stop_after_first = true },
 			c = { "astyle" },
 			h = { "astyle" },
 			cpp = { "astyle" },
 			hpp = { "astyle" },
 			nix = { "nixfmt" },
+			go = { "gofmt" },
 		},
 		-- If this is set, Conform will run the formatter on save.
 		-- It will pass the table to conform.format().

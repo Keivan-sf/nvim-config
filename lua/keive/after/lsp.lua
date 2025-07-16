@@ -79,5 +79,5 @@ if is_lsp_available and is_cmp_available then
 	require("lspconfig").cssls.setup({
 		capabilities = capabilities,
 	})
-	require("lspconfig").css_variables.setup({})
+	require("lspconfig").gopls.setup({})
 end
