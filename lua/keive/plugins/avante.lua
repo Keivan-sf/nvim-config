@@ -8,17 +8,23 @@ return {
 		--
 		--
 		use_absolute_path = true,
-		ollama = {
-			model = "llama3",
-			url = "http://localhost:11434/api", -- Default Ollama API endpoint
-			options = {
-				temperature = 0.2,
-				request_timeout = 120000, -- Increase timeout if needed
-				disable_tools = true, -- Important: disable tools functionality
+		providers = {
+			ollama = {
+				model = "llama3",
+				url = "http://localhost:11434/api", -- Default Ollama API endpoint
+				extra_request_body = {
+					options = {
+						temperature = 0.2,
+						request_timeout = 120000, -- Increase timeout if needed
+						disable_tools = true, -- Important: disable tools functionality
+					},
+				},
 			},
 		},
+		-- ollama = {
+		-- },
 		-- Set Ollama as the default provider
-		provider = "ollama",
+		-- provider = "ollama",
 		-- provider = "openai",
 		--
 		-- openai = {
