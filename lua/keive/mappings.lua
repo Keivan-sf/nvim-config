@@ -282,6 +282,9 @@ end
 vim.keymap.set("n", "n", "nzz", { noremap = true, silent = true })
 vim.keymap.set("n", "N", "Nzz", { noremap = true, silent = true })
 
+-- cycle through windows
+vim.keymap.set('n', '<C-l>', '<C-w><C-w>', { noremap = true, silent = true })
+
 -- scroll offset
 vim.opt.scrolloff = 8
 
