@@ -253,9 +253,9 @@ if utils.is_available("gitsigns.nvim") then
 	map("n", "<leader>gu", function()
 		require("gitsigns").undo_stage_hunk()
 	end)
-	map("n", "<leader>gd", function()
-		require("gitsigns").diffthis()
-	end)
+	-- map("n", "<leader>gd", function()
+	-- 	require("gitsigns").diffthis()
+	-- end)
 end
 
 -- lazygit
@@ -278,12 +278,22 @@ if utils.is_available("conform.nvim") then
 	end)
 end
 
+if utils.is_available("diffview.nvim") then
+	map("n", "<leader>gd", function()
+		vim.cmd("DiffviewOpen")
+	end)
+
+	map("n", "<leader>g", function()
+		vim.cmd("tabclose")
+	end)
+end
+
 -- center search result
 vim.keymap.set("n", "n", "nzz", { noremap = true, silent = true })
 vim.keymap.set("n", "N", "Nzz", { noremap = true, silent = true })
 
 -- cycle through windows
-vim.keymap.set('n', '<C-l>', '<C-w><C-w>', { noremap = true, silent = true })
+vim.keymap.set("n", "<C-l>", "<C-w><C-w>", { noremap = true, silent = true })
 
 -- scroll offset
 vim.opt.scrolloff = 8
